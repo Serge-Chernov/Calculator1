@@ -12,6 +12,7 @@ public class Calculator {
                return num1.multiply(num2);
             case "div":
                return num1.divide(num2, 14, RoundingMode.DOWN);
+
         }
         return BigDecimal.valueOf(0);
     }
