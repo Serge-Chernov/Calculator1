@@ -19,7 +19,7 @@ public class Application {
 
             BigDecimal num1 = new BigDecimal(snum1);
             BigDecimal num2 = new BigDecimal(snum2);
-            BigDecimal result = calculator.calculate(num1, num2, type);
+             BigDecimal result = calculator.calculate(num1, num2, type);
 
             writer.write(String.valueOf(result));
 
