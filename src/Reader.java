@@ -5,11 +5,11 @@ public class Reader {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public BigDecimal readNumber(){
+    public double readNumber(){
 
-        return scanner.nextBigDecimal();
+        return scanner.nextDouble();
     }
-    public String readOperation(){
+    public String readString(){
 
         return  scanner.next();
     }
