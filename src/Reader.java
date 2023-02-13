@@ -1,18 +1,9 @@
 import java.math.BigDecimal;
-import java.util.Scanner;
 
-public class Reader {
+public interface Reader {
+    BigDecimal readNumber();
 
-    private Scanner scanner = new Scanner(System.in);
+    String readString();
 
-    public double readNumber(){
-
-        return scanner.nextDouble();
-    }
-    public String readString(){
-
-        return  scanner.next();
-    }
 
 }
-

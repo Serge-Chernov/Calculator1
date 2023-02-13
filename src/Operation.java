@@ -1,22 +1,22 @@
 import java.math.BigDecimal;
 
 public class Operation {
-    double num1;
-    double num2;
+    BigDecimal num1;
+    BigDecimal num2;
     String type;
-    double result;
+    BigDecimal result;
 
-    public Operation(double num1, double num2, String type) {
+    public Operation(BigDecimal num1, BigDecimal num2, String type) {
         this.num1 = num1;
         this.num2 = num2;
         this.type = type;
     }
 
-    public double getNum1() {
+    public BigDecimal getNum1() {
         return num1;
     }
 
-    public double getNum2() {
+    public BigDecimal getNum2() {
         return num2;
     }
 
@@ -25,16 +25,16 @@ public class Operation {
         return type;
     }
 
-    public double getResult() {
+    public BigDecimal getResult() {
 
         return result;
     }
 
-    public void setResult(double result) {
+    public void setResult(BigDecimal result) {
         this.result = result;
     }
 
     public String toString() {
-        return String.valueOf(result);
+        return result.toString();
     }
 }

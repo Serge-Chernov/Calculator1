@@ -2,10 +2,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryOperationStorage implements OpStorage {
+public class InMemoryOperationStorage implements OperationStorage {
     private final List<Operation> operations = new ArrayList<>();
     @Override
     public void save(Operation operation) {
+        operations.add(operation);
 
     }
     @Override
