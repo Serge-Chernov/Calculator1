@@ -1,3 +1,5 @@
+package Calculator.entity;
+
 import java.math.BigDecimal;
 
 public class Operation {

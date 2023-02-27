@@ -1,3 +1,7 @@
+package Calculator.service;
+
+import Calculator.entity.Operation;
+
 import java.math.RoundingMode;
 
 public class Calculator {
