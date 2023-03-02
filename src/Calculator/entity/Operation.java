@@ -33,10 +33,12 @@ public class Operation {
     }
 
     public void setResult(BigDecimal result) {
+
         this.result = result;
     }
 
     public String toString() {
+
         return result.toString();
     }
 }
