@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class JsonOperationStorage {
-
     private Gson gson = new Gson();
 
     public void save(List<Operation> operations) {
