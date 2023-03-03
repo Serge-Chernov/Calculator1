@@ -11,19 +11,15 @@ import Calculator.storage.OperationStorage;
 import Calculator.util.Reader;
 import Calculator.util.Writer;
 import Calculator.validator.Validator;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 public class ConsoleApplication implements Application {
     private Calculator calculator = new Calculator();
     private Writer writer = new ConsoleWriter();
-
     private Reader reader = new ConsoleReader();
     private OperationStorage storage = new InMemoryOperationStorage();
-
     private Validator validator = new Validator();
-
     private JsonOperationStorage json = new JsonOperationStorage();
 
     public void runApp() {
@@ -37,14 +33,14 @@ public class ConsoleApplication implements Application {
 
             while (true) {
                 do {
-                    writer.write("Enter the first number: ");
+                    writer.write("Enter the first number");
                     ent = reader.readString();
 
                 } while (continueValidate == validator.validateNumber(ent));
                 num1 = new BigDecimal(ent);
 
                 do {
-                    writer.write("Enter the second number: ");
+                    writer.write("Enter the second number");
                     ent = reader.readString();
 
                 } while (continueValidate == validator.validateNumber(ent));
@@ -74,6 +70,7 @@ public class ConsoleApplication implements Application {
                         break;
                     }
                     case "no": {
+                        JsonOperationHistory(storage.findAll());
                         writer.write("Fine");
                         break;
                     }
@@ -90,7 +87,6 @@ public class ConsoleApplication implements Application {
                 String answer2 = ent;
                 switch (answer2) {
                     case "yes": {
-                        continueCalculate = true;
                         break;
                     }
                     case "no": {
@@ -108,11 +104,17 @@ public class ConsoleApplication implements Application {
         }
     }
 
+    private void JsonOperationHistory(List<Operation> operations) {
+        for (Operation operation : operations) {
+            storage.save(operation);
+            json.save(operations);
+        }
+    }
     private void operationHistory(List<Operation> operations) {
         for (Operation operation : operations) {
             writer.write(operation.toString());
+            json.save(operations);
         }
-        json.save(operations);
     }
 }
 

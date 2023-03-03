@@ -12,30 +12,25 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-    private Reader reader = new ConsoleReader();
-    private Writer writer = new ConsoleWriter();
+    private final Pattern patternNum = Pattern.compile("\\-\\d*\\.?\\d{0,20}|\\d*\\.?\\d{0,20}");
+    private final Pattern patternType = Pattern.compile("^sum$|^sub$|^div$|^mul$");
+    private final Pattern patternAnswer = Pattern.compile("^yes$|^no$");
 
     public Boolean validateNumber(String number) {
 
-        Pattern pattern = Pattern.compile("\\-\\d*\\.?\\d{0,20}|\\d*\\.?\\d{0,20}");
-        Matcher matcher = pattern.matcher(number);
-
+        Matcher matcher = patternNum.matcher(number);
         return matcher.matches();
     }
 
     public Boolean validateOperationType(String type) {
 
-        Pattern pattern = Pattern.compile("^sum$|^sub$|^div$|^mul$");
-        Matcher matcher = pattern.matcher(type);
-
+        Matcher matcher = patternType.matcher(type);
         return matcher.matches();
     }
 
     public Boolean validateAnswer(String answer) {
 
-        Pattern pattern = Pattern.compile("^yes$|^no$");
-        Matcher matcher = pattern.matcher(answer);
-
+        Matcher matcher = patternAnswer.matcher(answer);
         return matcher.matches();
     }
 }
