@@ -106,7 +106,6 @@ public class ConsoleApplication implements Application {
 
     private void JsonOperationHistory(List<Operation> operations) {
         for (Operation operation : operations) {
-            storage.save(operation);
             json.save(operations);
         }
     }
